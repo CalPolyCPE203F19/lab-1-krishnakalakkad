@@ -1,6 +1,7 @@
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.Math;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.Arrays;
@@ -21,9 +22,79 @@ public class TestCases
     * This test is just to get you started.
     */
    @Test
-   public void testGetX()
+   public void testGetX1()
    {
       assertEquals(1.0, new Point(1.0, 2.0).getX(), DELTA);
+   }
+
+   @Test
+   public void testGetX2()
+   {  
+      assertEquals(0.3, new Point(0.300, 1.6).getX(), DELTA);
+   }
+
+   @Test
+   public void testGetY1()
+   {
+      assertEquals(1.0, new Point(1.99, 1.0).getY(), DELTA);
+   }
+
+   @Test
+   public void testGetY2()
+   {
+      assertEquals(6.66, new Point(0.0, 6.66).getY(), DELTA);
+   }
+
+   @Test
+   public void testGetRadius1()
+   {
+      assertEquals(5.0, new Point(3.0, 4.0).getRadius(), DELTA);
+   }
+
+   @Test
+   public void testGetRadius2()
+   {
+      assertEquals(13.0, new Point(-12.0, 5.0).getRadius(), DELTA);
+   }
+
+   @Test
+   public void testGetAngle1()
+   {
+      assertEquals(0.0, new Point(1.0, 0.0).getAngle(), DELTA);
+   }
+
+   @Test
+   public void testGetAngle2()
+   {
+      assertEquals(Math.PI / 2, new Point(0.0, 1.0).getAngle(), DELTA);
+   }
+
+   @Test
+   public void testGetAngle3()
+   {
+      assertEquals(0.0, new Point(0.0, 0.0).getAngle(), DELTA);
+   }
+
+   @Test
+   public void testGetAngle4()
+   {
+      assertEquals(-Math.PI / 2, new Point(-1.0, 0.0).getAngle(), DELTA);
+   }
+
+   @Test
+   public void testRotate90_1()
+   {
+      Point testPoint = new Point(-1.0, 0.0).rotate90();
+      assertEquals(0.0, testPoint.getX(), DELTA);
+      assertEquals(-1.0, testPoint.getY(), DELTA);
+   }
+
+   @Test
+   public void testRotate90_2()
+   {
+      Point testPoint = new Point(6.0, 2.0).rotate90();
+      assertEquals(-2.0, testPoint.getX(), DELTA);
+      assertEquals(6.0, testPoint.getY(), DELTA);
    }
 
    /*
